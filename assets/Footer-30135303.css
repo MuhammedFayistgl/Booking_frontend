@@ -1,0 +1,1 @@
+.footer{width:100%;width:1024px;font-size:12px}.fLists{width:100%;display:flex;justify-content:space-between}.fList{list-style:none;padding:0}.fListItem{margin:10px;cursor:pointer}@media (min-width: 375px) and (max-width: 639px){.fLists{flex-direction:row;flex-wrap:wrap;gap:4px}.footer{width:100%}.fList{display:flex;flex-direction:column}}
