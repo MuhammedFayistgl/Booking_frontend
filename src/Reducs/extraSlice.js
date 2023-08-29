@@ -9,7 +9,7 @@ export const registeruser = createAsyncThunk(
   async (smtData) => {
     let { Email } = smtData;
 
-    const responce = await axios.post("http://localhost:5000/user/getotp", { Email });
+    const responce = await axios.post("https://booking-server-0uqh.onrender.com/user/getotp", { Email });
 
     if (responce.status === 201) {
       toast.success(responce.data.message);
@@ -26,14 +26,14 @@ export const otpverificationserver = createAsyncThunk(
   async (data) => {
     let { otpHash, Otp } = data;
     let input = data.Input;
-    const responce = await axios.post("http://localhost:5000/user/otpverifying", { otpHash, Otp, ...input });
+    const responce = await axios.post("https://booking-server-0uqh.onrender.com/user/otpverifying", { otpHash, Otp, ...input });
     return responce.data;
   }
 );
 /** Login user with username password */
 export const loginWithEmail = createAsyncThunk("loginWithEmail",
   async (data) => {
-    const res = axios.post("http://localhost:5000/user/userlogin", data)
+    const res = axios.post("https://booking-server-0uqh.onrender.com/user/userlogin", data)
       .then((res) => { return res.data })
     return res
 
@@ -50,7 +50,7 @@ export const dataCollection = createAsyncThunk(
   async () => {
     const res = await
       axios
-        .get("http://localhost:5000/admin/getallDeteals")
+        .get("https://booking-server-0uqh.onrender.com/admin/getallDeteals")
         .then((response) => response.data.data)
     return res
   }
@@ -59,14 +59,14 @@ export const dataCollection = createAsyncThunk(
 export const BockingHandler = createAsyncThunk(
   'Bocking',
   async (Booking_Data) => {
-    const res = await axios.post('http://localhost:5000/user/bocking', { Booking_Data }).then((response) => {
+    const res = await axios.post('https://booking-server-0uqh.onrender.com/user/bocking', { Booking_Data }).then((response) => {
       return response.data
     }).catch((err) => toast.error(err));
     return res
   })
 export const getmyBooking = createAsyncThunk("getmyBooking",
   async () => {
-    const res = await axios.get('http://localhost:5000/user/getmyBooking')
+    const res = await axios.get('https://booking-server-0uqh.onrender.com/user/getmyBooking')
       .then((response) => { return response.data }).catch((err) => console.log(err));
     return res
   }
@@ -74,7 +74,7 @@ export const getmyBooking = createAsyncThunk("getmyBooking",
 
 export const cancelOrder = createAsyncThunk('cancelOrder',
   async (id) => {
-    const data = await axios.post('http://localhost:5000/user/cancelOrder', { orderID: id })
+    const data = await axios.post('https://booking-server-0uqh.onrender.com/user/cancelOrder', { orderID: id })
       .then(response => { return response.data })
       .catch(err => toast.error(err))
     return data
@@ -82,7 +82,7 @@ export const cancelOrder = createAsyncThunk('cancelOrder',
 )
 export const loginVerification = createAsyncThunk('loginVerification',
   async () => {
-    const data = await axios.post('http://localhost:5000/user/getuser')
+    const data = await axios.post('https://booking-server-0uqh.onrender.com/user/getuser')
       .then((res) => { return res.data }).catch(err => { return err.response.data })
     return data
   }
@@ -97,7 +97,7 @@ export const setProfileimageFileAsync = createAsyncThunk('setProfileimageFileAsy
       },
     };
     console.log(formData.get('file'));
-    const data = await axios.post("http://localhost:5000/user/uplodprofileimg", formData, config)
+    const data = await axios.post("https://booking-server-0uqh.onrender.com/user/uplodprofileimg", formData, config)
       .then((res) => { return res.data }).catch(err => { return err.response.data })
     return data
   }
