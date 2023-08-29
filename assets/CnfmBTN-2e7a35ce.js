@@ -1,1 +1,0 @@
-import{u as t,b as a,j as n}from"./index-16626c86.js";const c=({bookNow:o})=>{const s=t(),{_id:e}=a();return n.jsx("button",{onClick:()=>s(`/confometon/${e}`),...o&&{className:"bookNow"},children:"Reserve or Book Now!"})};export{c as default};
