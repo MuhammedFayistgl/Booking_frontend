@@ -1,0 +1,1 @@
+import{aq as e,j as o,ar as r}from"./index-f269b19c.js";import s from"./login-922c787d.js";import"./Navbar-672ac146.js";import"./Nav-065d5041.js";import"./Typography-b472ff3e.js";const x=()=>{const[t,i]=e();return o.jsx(o.Fragment,{children:t.token?o.jsx(r,{}):o.jsx(s,{Order:!0})})};export{x as default};
